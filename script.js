@@ -47,13 +47,17 @@ function createPin(id, x, y, text) {
     
     // When mouse is pressed down on the pin, start dragging
     pin.addEventListener('mousedown', (e) => {
+        // If user clicks inside text, DO NOT drag
+        if (e.target.classList.contains('pin-text')) {
+            return;
+        }
+
         isDragging = true;
-        // Calculate the offset from the mouse to the pin's top-left corner
         offsetX = e.clientX - pin.offsetLeft;
         offsetY = e.clientY - pin.offsetTop;
-        // Prevent text selection while dragging
         e.preventDefault();
     });
+
     
     // When mouse moves, if dragging, move the pin
     document.addEventListener('mousemove', (e) => {
