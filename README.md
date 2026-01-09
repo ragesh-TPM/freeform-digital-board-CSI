@@ -1,5 +1,5 @@
 #Digital Board - Frontend MVP
-##Overview
+Overview
 
 This is a frontend-only project for a digital board where users can add, edit, and position text-based pins anywhere on the blank canvas.
 
