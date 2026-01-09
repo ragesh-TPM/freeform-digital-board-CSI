@@ -57,3 +57,6 @@ body {
 #add-pin-btn:hover {
     background-color: #45a049; /* Darker green on hover */
 }
+.pin-text {
+    cursor: text;
+}
