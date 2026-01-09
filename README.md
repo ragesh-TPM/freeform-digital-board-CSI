@@ -1,5 +1,5 @@
-#Digital Board - Frontend MVP
-Overview
+# Digital Board - Frontend MVP
+## Overview
 
 This is a frontend-only project for a digital board where users can add, edit, and position text-based pins anywhere on the blank canvas.
 
@@ -7,7 +7,7 @@ I want to explicitly state that not all the advanced requirements in this origin
 
 This submission is to show genuine effort, earnest learning, and a foundation, fully developed from scratch.
 
-##Reason for taking this task:
+## Reason for taking this task:
 
 Being a beginner in the industry, my main goals were to:
 
@@ -19,7 +19,7 @@ Solution. Avoid depending on copied solutions without understanding.
 
 Stress has been found to be inversely related to age, family income, and education of the mothers of children under age two years.
 
-##Implemented Features
+## Implemented Features
 Blank Canvas Interface
 - A full-screen canvas that initializes empty.
 
@@ -48,7 +48,7 @@ Clean & Beginner-Friendly Code Base
 
 Technical Highlights Frontend only implementation. Frameworks and build tools are not needed. - Event-driven interaction using mouse events. Input State is stored as structured JavaScript objects. - Client-side persistence is per-user / per-browser. This project runs by simply opening index.html in a browser.
 
-##What this project represents
+## What this project represents
 
 This project is more than just a collection of features. It represents:
 
