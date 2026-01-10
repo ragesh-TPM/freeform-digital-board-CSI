@@ -2,13 +2,15 @@
 const canvas = document.getElementById('canvas');
 const addPinBtn = document.getElementById('add-pin-btn');
 
-// Array to hold all pins
+// array to hold all the pins
 let pins = [];
 
-// Load pins from localStorage when the page loads
-function loadPins() {
+// load pins from localStorage when the page loads that will be helpful for viewing when needed
+function loadPins() 
+{
     const savedPins = localStorage.getItem('pins');
-    if (savedPins) {
+    if (savedPins) 
+    {
         pins = JSON.parse(savedPins);
         // Recreate each pin on the canvas
         pins.forEach(pin => createPin(pin.id, pin.x, pin.y, pin.text));
@@ -16,12 +18,14 @@ function loadPins() {
 }
 
 // Save pins to localStorage
-function savePins() {
+function savePins() 
+{
     localStorage.setItem('pins', JSON.stringify(pins));
 }
 
 // Function to create a new pin
-function createPin(id, x, y, text) {
+function createPin(id, x, y, text) 
+{
     // Create the pin div
     const pin = document.createElement('div');
     pin.className = 'pin';
@@ -45,10 +49,12 @@ function createPin(id, x, y, text) {
     let isDragging = false;
     let offsetX, offsetY;
     
-    // When mouse is pressed down on the pin, start dragging
-    pin.addEventListener('mousedown', (e) => {
-        // If user clicks inside text, DO NOT drag
-        if (e.target.classList.contains('pin-text')) {
+    // when mouse is pressed down on the pin, it should start dragging
+    pin.addEventListener('mousedown', (e) => 
+    {
+        // If user clicks inside text, do not drag
+        if (e.target.classList.contains('pin-text')) 
+        {
             return;
         }
 
@@ -61,7 +67,8 @@ function createPin(id, x, y, text) {
     
     // When mouse moves, if dragging, move the pin
     document.addEventListener('mousemove', (e) => {
-        if (isDragging) {
+        if (isDragging) 
+        {
             // Update the pin's position
             pin.style.left = (e.clientX - offsetX) + 'px';
             pin.style.top = (e.clientY - offsetY) + 'px';
@@ -69,12 +76,15 @@ function createPin(id, x, y, text) {
     });
     
     // When mouse is released, stop dragging and save
-    document.addEventListener('mouseup', () => {
-        if (isDragging) {
+    document.addEventListener('mouseup', () => 
+    {
+        if (isDragging) 
+        {
             isDragging = false;
             // Update the pin's position in the pins array
             const pinIndex = pins.findIndex(p => p.id === id);
-            if (pinIndex !== -1) {
+            if (pinIndex !== -1) 
+            {
                 pins[pinIndex].x = parseInt(pin.style.left);
                 pins[pinIndex].y = parseInt(pin.style.top);
                 pins[pinIndex].text = textArea.textContent;
@@ -84,9 +94,11 @@ function createPin(id, x, y, text) {
     });
     
     // Save text changes when the user stops editing
-    textArea.addEventListener('blur', () => {
+    textArea.addEventListener('blur', () => 
+    {
         const pinIndex = pins.findIndex(p => p.id === id);
-        if (pinIndex !== -1) {
+        if (pinIndex !== -1) 
+        {
             pins[pinIndex].text = textArea.textContent;
             savePins();
         }
@@ -94,7 +106,8 @@ function createPin(id, x, y, text) {
 }
 
 // Function to add a new pin
-function addPin() {
+function addPin() 
+{
     // Generate a unique ID
     const id = 'pin-' + Date.now();
     // Default position in the center
@@ -102,7 +115,7 @@ function addPin() {
     const y = window.innerHeight / 2 - 50; // Center vertically
     const text = 'New Pin'; // Default text
     
-    // Add to pins array
+    // Add into pins array
     pins.push({ id, x, y, text });
     
     // Create the pin on the canvas
